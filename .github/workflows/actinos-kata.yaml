@@ -5,6 +5,11 @@ on:
     paths:
       - '**.ts'
       - 'desktop-app/**'
+  push:
+    branches:
+      - main
+    paths:
+      - 'website/**'
 #defaults:
 #  run:
 #    working-directory: "desktop-app"
@@ -41,4 +46,8 @@ jobs:
       - name: test e2e
         working-directory: desktop-app
         run: 'xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- npm run e2e'
+      - name: deplouy
+        working-directory: 
+        run: |
+          echo ${{ secrets.TEST_SECRET }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
