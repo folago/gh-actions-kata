@@ -5,8 +5,8 @@ import { saveScreenshotOnFailure } from './utils';
 electronTest.afterEach(saveScreenshotOnFailure('basic'))
 
 electronTest("Window has correct title", async ({
-  page
+	page
 }) => {
-  const title = await page.title();
-  expect(title).toBe("Vite + React + TS");
+	const title = await page.title();
+	expect(title).toBe("DevTools");
 })
