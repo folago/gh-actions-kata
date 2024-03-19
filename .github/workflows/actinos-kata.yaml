@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - '**.ts'
+      - 'desktop-app/**'
 #defaults:
 #  run:
 #    working-directory: "desktop-app"
@@ -37,4 +38,7 @@ jobs:
       - name: test
         run: npm test
         working-directory: desktop-app
+      - name: test e2e
+        working-directory: desktop-app
+        run: 'xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- npm run e2e'
       - run: echo "🍏 This job's status is ${{ job.status }}."
